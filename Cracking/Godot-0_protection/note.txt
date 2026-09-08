@@ -1,0 +1,2 @@
+Tuyên bố
+Người bạn lập trình viên của bạn đã thiết kế một trò chơi mới và muốn bạn thử nghiệm. Ông giải thích rằng mục tiêu là đến được hòn đảo ánh sáng trên bầu trời. Ông ấy cũng nói với bạn rằng nếu bạn có đến đó, bạn phải nói cho ông ấy biết những gì được viết trên biển báo trên đảo làm bằng chứng, bởi vì bạn không thể đến đó được. Hãy chứng minh cho anh ta thấy rằng anh ta đã sai.

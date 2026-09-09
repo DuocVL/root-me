@@ -1,0 +1,152 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://res/img/ground.png" type="Texture" id=1]
+[ext_resource path="res://res/scenes/Panel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/FlagLabel.gd" type="Script" id=3]
+[ext_resource path="res://res/misc/neuropol.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("FlagPanel/Sprite3D/Viewport")
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 5, 0.5, 5 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 1, 0.94902, 0.568627, 1 )
+albedo_texture = ExtResource( 1 )
+emission_enabled = true
+emission = Color( 1, 0.85098, 0.254902, 1 )
+emission_energy = 3.4
+emission_operator = 0
+emission_on_uv2 = false
+anisotropy_enabled = true
+anisotropy = 0.0
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+size = Vector3( 10, 2, 10 )
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 1, 0.972549, 0.65098, 1 )
+emission_enabled = true
+emission = Color( 1, 0.937255, 0.631373, 1 )
+emission_energy = 3.4
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.2, 2, 5 )
+
+[sub_resource type="SpatialMaterial" id=10]
+emission_enabled = true
+emission = Color( 0.937255, 1, 0.509804, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="CubeMesh" id=11]
+material = SubResource( 10 )
+size = Vector3( 10, 1, 10 )
+
+[node name="island" type="Spatial"]
+
+[node name="FlagPanel" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="Sprite3D" type="Sprite3D" parent="FlagPanel"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.16, 2, 0 )
+texture = SubResource( 1 )
+
+[node name="Viewport" type="Viewport" parent="FlagPanel/Sprite3D"]
+size = Vector2( 400, 100 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="FlagLabel" type="Label" parent="FlagPanel/Sprite3D/Viewport"]
+margin_right = 400.0
+margin_bottom = 100.0
+theme = SubResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ground" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground"]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Wall1" type="StaticBody" parent="."]
+
+[node name="Wall1Mesh" type="MeshInstance" parent="Wall1"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 5, 4.8, 3, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 3, 0 )
+shape = SubResource( 9 )
+
+[node name="Wall2" type="StaticBody" parent="."]
+
+[node name="Wall2Mesh" type="MeshInstance" parent="Wall2"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 5, -4.8, 3, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 3, 0 )
+shape = SubResource( 9 )
+
+[node name="Wall3" type="StaticBody" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+
+[node name="Wall3Mesh" type="MeshInstance" parent="Wall3"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 5, -4.8, 3, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 3, 0 )
+shape = SubResource( 9 )
+
+[node name="Wall4" type="StaticBody" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+
+[node name="Wall4Mesh" type="MeshInstance" parent="Wall4"]
+transform = Transform( 0.2, 0, 0, 0, 2, 0, 0, 0, 5, 4.8, 3, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 3, 0 )
+shape = SubResource( 9 )
+
+[node name="Ceiling" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ceiling"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ceiling"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+mesh = SubResource( 11 )
+material/0 = null

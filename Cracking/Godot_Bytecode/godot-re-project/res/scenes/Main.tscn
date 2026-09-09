@@ -1,0 +1,182 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://res/scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/misc/neuropol.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://res/img/ground.png" type="Texture" id=3]
+[ext_resource path="res://res/scenes/Panel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://res/scenes/Skull.tscn" type="PackedScene" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 30, 1, 30 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 3 )
+uv1_triplanar = true
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+size = Vector3( 60, 2, 60 )
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Ground/Panel/Sprite3D/Viewport")
+
+[sub_resource type="DynamicFont" id=5]
+size = 14
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[sub_resource type="ViewportTexture" id=7]
+viewport_path = NodePath("Ground/Sprite3D 2/Viewport")
+
+[sub_resource type="DynamicFont" id=8]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 31, 35, 1 )
+
+[sub_resource type="CubeMesh" id=11]
+size = Vector3( 62, 70, 2 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_texture = ExtResource( 3 )
+uv1_triplanar = true
+
+[node name="Main" type="Node"]
+
+[node name="Ground" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.675004, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Panel" parent="Ground" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2.2, 0 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Ground/Panel"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.16, 2, 0 )
+texture = SubResource( 4 )
+
+[node name="Viewport" type="Viewport" parent="Ground/Panel/Sprite3D"]
+size = Vector2( 400, 100 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="FlagLabel" type="Label" parent="Ground/Panel/Sprite3D/Viewport"]
+margin_right = 400.0
+margin_bottom = 100.0
+theme = SubResource( 6 )
+text = "Escape from this
+graveyard, the exit is
+in another dimension"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3D 2" type="Sprite3D" parent="Ground"]
+transform = Transform( -1, 3.25841e-07, 0, -3.88562e-15, -1.19249e-08, 1, 3.25841e-07, 1, 1.19249e-08, 26.507, 1.01, 27.928 )
+texture = SubResource( 7 )
+
+[node name="Viewport" type="Viewport" parent="Ground/Sprite3D 2"]
+size = Vector2( 100, 50 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="Ground/Sprite3D 2/Viewport"]
+margin_right = 100.0
+margin_bottom = 50.0
+theme = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "weebs > all"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33007, 0 )
+
+[node name="Wall1" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="Wall2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="Wall3" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../Wall2")
+material/0 = SubResource( 12 )
+
+[node name="Wall4" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0 )
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0 )
+mesh = SubResource( 11 )
+skeleton = NodePath("../../Wall2")
+material/0 = SubResource( 12 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.0130982, 0.88786, 0.459928, 0.175712, -0.454853, 0.87306, 0.984354, 0.0693795, -0.161966, 23.5124, 116.367, -2.55636 )
+
+[node name="Skull" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.879921, 0.170502, -0.443473, 0.277082, 0.942382, -0.187458, 0.385959, -0.287827, -0.876465, -20.4412, 1.0622, 24.0484 )
+
+[node name="Skull2" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.795691, 0.376893, -0.474159, -0.33972, -0.925798, -0.165797, -0.501463, 0.0291584, 0.864688, -14.4989, 1.17162, 23.5443 )
+
+[node name="Skull3" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.463258, 0.077463, 0.882832, 0.187189, 0.98225, 0.0120395, -0.866229, 0.170834, -0.469535, -20.5608, 1.28004, -23.5804 )
+
+[node name="Skull4" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.377068, 0.139509, -0.915618, -0.359136, -0.933268, 0.00570058, -0.853722, 0.330981, 0.402008, -8.82061, 1.25139, -25.1129 )
+
+[node name="Skull5" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.100903, 0.994721, 0.0186828, 0.0539442, 0.0242212, -0.99825, -0.993433, -0.0997186, -0.0561035, -2.84876, 0.862436, -25.3227 )
+
+[node name="Skull6" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.0621078, 0.0581636, 0.996373, -0.0960938, 0.993314, -0.063975, -0.993433, -0.0997186, -0.0561035, 25.8735, 1.13444, -11.6162 )

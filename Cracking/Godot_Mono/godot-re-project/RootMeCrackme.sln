@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RootMeCrackme", "RootMeCrackme.csproj", "{2524BD8C-8B46-CD2C-570D-DD5D84351B7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AnyCPU = Debug|AnyCPU
+		Release|AnyCPU = Release|AnyCPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2524BD8C-8B46-CD2C-570D-DD5D84351B7E}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
+		{2524BD8C-8B46-CD2C-570D-DD5D84351B7E}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
+		{2524BD8C-8B46-CD2C-570D-DD5D84351B7E}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
+		{2524BD8C-8B46-CD2C-570D-DD5D84351B7E}.Release|AnyCPU.Build.0 = Release|AnyCPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

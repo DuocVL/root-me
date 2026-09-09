@@ -1,0 +1,23 @@
+<Project Sdk="Godot.NET.Sdk/3.2.3">
+  <PropertyGroup>
+    <AssemblyName>RootMeCrackme</AssemblyName>
+    <EnableDynamicLoading>True</EnableDynamicLoading>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <!--The following references were not added to the project file because they are automatically added by the Godot SDK.-->
+    <!--
+<Reference Include="GodotSharp">
+  <HintPath>../../../../../.local/share/godot/app_userdata/Godot RE Tools/.tmp/RootMeCrackme_mono_temp/.mono/assemblies/Release/GodotSharp.dll</HintPath>
+</Reference>
+-->
+  </ItemGroup>
+</Project>

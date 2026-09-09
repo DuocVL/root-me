@@ -1,0 +1,45 @@
+GDRE Tools v2.6.4
+Kali GNU/Linux Rolling 2026.3, NVIDIA GeForce RTX 3050 Laptop GPU, opengl3
+Opening file: ~/Documents/root-me/Cracking/Godot_Mono/mono.exe
+Multiple passing candidates for bytecode version 13:
+3.5.0-stable (a7aad78), 3.2.0-stable (5565f55)
+Choosing only one that matches engine version: 3.2.0-stable (5565f55).
+Loaded 8 imported files
+Detected Engine Version: 3.2.4
+Detected Bytecode Revision: 3.2.0-stable (5565f55)
+Verified 75 files, no errors detected!
+Extracted 75 files, no errors detected!
+Unable to compile C# project; ensure that the project is built in the editor before making any changes.
+WARNING: Mesh uses old surface format, which is deprecated (and loads slower). Consider re-importing or re-saving the scene. Path: "res://.import/skull.glb-da4df2d80c6d5fae2b1ac89c1b79d829.scn::1"
+   at: _set (scene/resources/mesh.cpp:1367)
+WARNING: This mesh uses an old deprecated parameter name. Consider re-saving this scene in order for it to continue working in future versions.
+   at: _set (scene/3d/mesh_instance_3d.cpp:77)
+ERROR: Parameter "_image_compress_etc2_func" is null.
+   at: _compress_from_channels (core/io/image.cpp:2998)
+ERROR: Parameter "_image_compress_etc2_func" is null.
+   at: _compress_from_channels (core/io/image.cpp:2998)
+Saved project config.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     4
+Scripts not decompiled:                 0
+Imported resources for export session:  8
+Successfully converted:                 8
+Lossy:                                  2
+Rewrote metadata:                       0
+Non-importable conversions:             0
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 3.2.4 (Mono) to edit the project.
+
+*******************************************************************************
+

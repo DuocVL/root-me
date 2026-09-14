@@ -71,9 +71,3 @@ Repository được sử dụng để:
 * Phát triển kỹ năng scripting
 * Làm quen với phương pháp phân tích và khai thác
 * Ghi lại kiến thức đã học
-
-## Disclaimer
-
-Repository phục vụ mục đích **học tập và nghiên cứu Cybersecurity**.
-
-Các kỹ thuật được trình bày chỉ nên được sử dụng trong CTF, lab hoặc trên các hệ thống mà bạn được phép kiểm thử.
